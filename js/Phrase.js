@@ -3,10 +3,18 @@
  * Phrase.js */
 //const phrase;
 class Phrase {
-    // constructor() {
-    //     this.phrase = phrase.toLowerCase;}
-    // }
-    // addPhraseToDisplay() {
+    constructor(phrase) {
+        this.phrase= phrase.toLowerCase();
+    }
+    addPhraseToDisplay() {
+
+    }
+    checkLetter() {
+
+    }
+    showMatchedLetter() {
+
+    }
 
 
 }
