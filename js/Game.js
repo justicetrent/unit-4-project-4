@@ -15,17 +15,18 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
        this.activePhrase = null; // Initially there is no phrase chosen
       }
 
-      //     startGame() // METHOD THAT INITIALIZES GAME
-      //        // Overlay disappears and game screen appears
-      //        // Previous lives reset
-      //        // Previous keyboard reset
-      //        // Random phrase is retrieved (getRandomPhrase())
-      //        // Phrase is displayed with objects hidden (addPhraseToDisplay())
-            
-
       getRandomPhrase() {// METHOD THAT SELECTS A RANDOM PHRASE 
             const randomPhrase = Math.floor(Math.random() * this.phrases.length);
                   return this.phrases[randomPhrase];
+      }
+
+      startGame() { // METHOD THAT INITIALIZES GAME
+            $('#overlay').hide();
+            this.activePhrase = this.getRandomPhrase();   // Overlay disappears and game screen appears
+            this.addPhraseToDisplay() // Previous lives reset
+               // Previous keyboard reset
+               // Random phrase is retrieved (getRandomPhrase())
+               // Phrase is displayed with objects hidden (addPhraseToDisplay())
       }
       // return quotes[number];
       //        // (Similar to Project 1 )

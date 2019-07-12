@@ -7,10 +7,16 @@ class Phrase {
         this.phrase= phrase.toLowerCase();
 
     }
-}
-//     addPhraseToDisplay() {
 
-//     }
+    addPhraseToDisplay() {
+        for(let i =0; i < this.phrase.length; i++){
+                if (this.phrase[i] !== ' ') {
+                    $('div#phrase.section').append(`<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`); 
+            }   else {
+                $('div#phrase.section').append(`<li class="hide space">&nbsp;</li>`);
+            }
+        }
+    }
 //     checkLetter() {
 
 //     }
@@ -20,3 +26,4 @@ class Phrase {
 
 
 // }
+}
