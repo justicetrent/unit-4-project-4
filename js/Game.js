@@ -7,9 +7,9 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
        this.missed = 0;    // Track the number of missed guesses, initially set to 0
        this.phrases = [  // Store array of phrases
             new Phrase('Sinnerman Nina Simone'),
-            new Phrase('What a Wonderful World Sam Cooke'),
-            new Phrase('Sittin on the Dock of the Bay Otis Redding'),
-            new Phrase('Loveable Sam Cooke'),
+            new Phrase('What a Wonderful World'),
+            new Phrase('Sittin on the Dock of the Bay'),
+            new Phrase('Loveable'),
             new Phrase('A Song for you Donny Hathaway')
       ];
        this.activePhrase = null; // Initially there is no phrase chosen
@@ -28,9 +28,12 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
                // Random phrase is retrieved (getRandomPhrase())
                // Phrase is displayed with objects hidden (addPhraseToDisplay())
       }
-      // return quotes[number];
-      //        // (Similar to Project 1 )
-
+            
+     checkForWin() {
+            if($('#phrase .show').length === $('#phrase .letter').length){
+                  this.gameOver();
+            }
+     }
 
       //     handleInteraction() // METHOD THAT CONTROLS MOST OF THE GAME LOGIC
       //        // If user clicks on screen keyboard...
@@ -49,8 +52,7 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
       //                       // Remove 1 life
             
 
-      //     checkForWin() // METHOD THAT CHECKS IF USER HAS WON 
-      //           // Check if there are no more hidden letters in the phrase object, return true or false
+     
 
 
       //     removeLife() // METHOD THAT REMOVES LIFE FROM SCOREBOARD WHEN CALLED

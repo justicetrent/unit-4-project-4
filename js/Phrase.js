@@ -11,20 +11,24 @@ class Phrase {
     addPhraseToDisplay() {
         for(let i =0; i < this.phrase.length; i++){
                 if (this.phrase[i] !== ' ') {
-                    $('div#phrase.section').append(`<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`); 
+                    $('ul').append(`<li class="hide letter ${this.phrase[i]}">${this.phrase[i]}</li>`); 
             }   else {
-                $('div#phrase.section').append(`<li class="hide space">&nbsp;</li>`);
+                $('ul').append(`<li class="hide space">&nbsp;</li>`);
             }
         }
     }
     
-//     checkLetter() {
+    checkLetter(letter) {
+        if(this.phrase.includes(letter)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    showMatchedLetter(letter) {
+        $('#phrase ul .' + letter).addClass('show letter')
+        $('#phrase ul .' + letter).removeClass('hide letter');
+    }
 
-//     }
-//     showMatchedLetter() {
 
-//     }
-
-
-// }
-}
+ }
