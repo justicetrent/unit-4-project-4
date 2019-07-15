@@ -14,7 +14,10 @@
 //     logPhrase(game.getRandomPhrase());
 //     logPhrase(game.getRandomPhrase());
 
+// const game = new Game();
+// const randomPhrase = game.getRandomPhrase();
+// const phrase = new Phrase(randomPhrase.phrase);
+// phrase.addPhraseToDisplay();
 const game = new Game();
-const randomPhrase = game.getRandomPhrase();
-const phrase = new Phrase(randomPhrase.phrase);
-phrase.addPhraseToDisplay();
+game.startGame();
+console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);

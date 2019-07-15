@@ -17,6 +17,7 @@ class Phrase {
             }
         }
     }
+    
 //     checkLetter() {
 
 //     }

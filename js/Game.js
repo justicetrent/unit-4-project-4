@@ -23,7 +23,7 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
       startGame() { // METHOD THAT INITIALIZES GAME
             $('#overlay').hide();
             this.activePhrase = this.getRandomPhrase();   // Overlay disappears and game screen appears
-            this.addPhraseToDisplay() // Previous lives reset
+            this.activePhrase.addPhraseToDisplay(); // Previous lives reset
                // Previous keyboard reset
                // Random phrase is retrieved (getRandomPhrase())
                // Phrase is displayed with objects hidden (addPhraseToDisplay())
