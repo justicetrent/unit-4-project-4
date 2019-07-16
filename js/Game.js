@@ -3,15 +3,15 @@
  * Game.js */
 
 class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
-    constructor() {
-       this.missed = 0;    // Track the number of missed guesses, initially set to 0
-       this.phrases = [  // Store array of phrases
-            new Phrase('Sinnerman Nina Simone'),
+    constructor() { 
+       this.missed = 0;
+       this.phrases = [  
+            new Phrase('Sinnerman'),
             new Phrase('What a Wonderful World'),
             new Phrase('Sittin on the Dock of the Bay'),
             new Phrase('Loveable'),
-            new Phrase('A Song for you Donny Hathaway')
-      ];
+            new Phrase('A Song for you')
+       ]
        this.activePhrase = null; // Initially there is no phrase chosen
       }
 
@@ -30,44 +30,29 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
       }
             
      checkForWin() {
-            if($('#phrase .show').length === $('#phrase .letter').length){
+           return ($('#phrase ul .hide').length === 0);
+      }
+
+
+      removeLife() {
+            $("img")[this.missed].src = "images/lostHeart.png";
+            this.missed += 1;
+            if(this.missed === 5) {
                   this.gameOver();
             }
-     }
-      removeLife() {
-            
-       // METHOD THAT REMOVES LIFE FROM SCOREBOARD WHEN CALLED
-            //           // Storing all the "lives" (The heart icons)
-            //           // Points to which heart based on how many misses 
-            //           // Replaces that heart image with the "lost" heart image
-            //           // Missed guesses is incremented by 1
       }
-      //           // If missed guesses is the maximum amount...
-      //                // Ends game(gameOver())
-      //     handleInteraction() // METHOD THAT CONTROLS MOST OF THE GAME LOGIC
-      //        // If user clicks on screen keyboard...
-      //              // Store the value of what the user cliked
 
-      //        // Disable whichever letter the user chose (Can't be chosen again)
-
-      //        // If the chosen letter matches a letter in the phrase (checkLetter())...
-      //              // Give it the "chosen" class (Highlights the letter in whatever color you choose... Css or JS)
-      //              // Show the matched letter: Un-hides the letter object (showMatchedLetter())
-      //              // If the user has won (checkForWin()) ...
-      //                    // Ends game (gameOver())
-
-      //                 // Otherwise/else (letter does NOT match)...
-      //                       // Give it the "wrong" class (Highlights the letter in whatever color you choose... Css or JS)
-      //                       // Remove 1 life
-            
-
-     
-
-
-      
-      
-            
-      //     gameOver() // METHOD THAT ENDS GAME AND DISPLAYS A MESSAGE ON WHETHER USER WINS OR LOSES
+      gameOver() { 
+            $('#overlay').show();
+            if(this.checkForWin()) {
+                  $("#game-over-message").text("You Win!")
+                  $("#overlay").css('backgroundColor', 'green');
+            } else {
+                  $("#game-over-message").text("You Lose!")
+                  $("#overlay").css('backgroundColor', 'red');
+            }
+      }
+      // METHOD THAT ENDS GAME AND DISPLAYS A MESSAGE ON WHETHER USER WINS OR LOSES
       //           // Leaves game screen and goes back to overlay
 
       //           // If user has max misses, they lose and...
@@ -75,5 +60,22 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
       //                 // Gives overlay losing class name and styles
       //              // Otherwise/else...
       //                     // Display winning message
-      //                     // Gives overlay winning class name and styles (Star Wars Victory pic)
-}            
+      //     
+      // Gives overlay winning class name and styles (Star Wars Victory pic)
+      handleInteraction(event) {
+            console.log("Help me");
+            // let chosenLetter = button.text();
+            // if(this.activePhrase.checkLetter(chosenLetter)){
+            //     button.addClass("chosen");
+            //     this.activePhrase.showaMatchedLetter(chosenLetter)
+            //         if(this.checkForWin()) {
+            //             this.gameOver(true)
+            //             $(this).prop("disabled", true);
+            //         } 
+            // } else {
+            //     button.addClass("wrong").prop("disabled", true);
+            //     this.removeLife();
+            // }
+        }
+}     
+       

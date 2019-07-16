@@ -27,3 +27,12 @@ $('#btn__reset').on('click', function () {
     game = new Game();
     game.startGame();
 });
+
+
+// $("#querty .key").click((e) => {
+//     const $target = $(e.target);
+//     game.handleInteraction($target);
+// });
+$(".key").click(function() {
+    game.handleInteraction(event);
+});

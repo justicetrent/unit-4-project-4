@@ -19,15 +19,15 @@ class Phrase {
     }
     
     checkLetter(letter) {
-        if(this.phrase.includes(letter)){
-            return true;
-        } else {
-            return false;
-        }
+        return this.phrase.includes(letter);
+        // if(this.phrase.includes(letter)){
+        //     return true;
+        // } else {
+        //     return false;
+        // }
     }
     showMatchedLetter(letter) {
-        $('#phrase ul .' + letter).addClass('show letter')
-        $('#phrase ul .' + letter).removeClass('hide letter');
+        $('#phrase ul .' + letter).removeClass('hide').addClass('show');
     }
 
 
