@@ -34,7 +34,16 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
                   this.gameOver();
             }
      }
-
+      removeLife() {
+            
+       // METHOD THAT REMOVES LIFE FROM SCOREBOARD WHEN CALLED
+            //           // Storing all the "lives" (The heart icons)
+            //           // Points to which heart based on how many misses 
+            //           // Replaces that heart image with the "lost" heart image
+            //           // Missed guesses is incremented by 1
+      }
+      //           // If missed guesses is the maximum amount...
+      //                // Ends game(gameOver())
       //     handleInteraction() // METHOD THAT CONTROLS MOST OF THE GAME LOGIC
       //        // If user clicks on screen keyboard...
       //              // Store the value of what the user cliked
@@ -55,14 +64,7 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
      
 
 
-      //     removeLife() // METHOD THAT REMOVES LIFE FROM SCOREBOARD WHEN CALLED
-      //           // Storing all the "lives" (The heart icons)
-      //           // Points to which heart based on how many misses 
-      //           // Replaces that heart image with the "lost" heart image
-      //           // Missed guesses is incremented by 1
-
-      //           // If missed guesses is the maximum amount...
-      //                // Ends game(gameOver())
+      
       
             
       //     gameOver() // METHOD THAT ENDS GAME AND DISPLAYS A MESSAGE ON WHETHER USER WINS OR LOSES
