@@ -35,7 +35,7 @@ $('#btn__reset').on('click', function () {
 // });
 $("#qwerty .key").click(function(event) {
     game.handleInteraction(event);
-    // game.startGame();
+    //game.startGame();
     // game.resetDisplay();
 });
 

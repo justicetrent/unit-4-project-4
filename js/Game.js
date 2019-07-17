@@ -81,7 +81,7 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
       handleInteraction(event) {
             // console.log("Help me");
             let chosenLetter = $(event.target).text();
-            $(this).prop("disabled", true);
+            $(event.target).prop("disabled", true);
             if(this.activePhrase.checkLetter(chosenLetter)){
                   this.activePhrase.showMatchedLetter(chosenLetter)
                 $(event.target).addClass("chosen");
