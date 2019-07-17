@@ -22,15 +22,19 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
 
       startGame() { // METHOD THAT INITIALIZES GAME
             $('#overlay').hide();
-            this.activePhrase = this.getRandomPhrase();   // Overlay disappears and game screen appears
-            this.activePhrase.addPhraseToDisplay(); // Previous lives reset
+            this.activePhrase = this.getRandomPhrase();
+            this.activePhrase.addPhraseToDisplay(); 
+            //this.resetDisplay();
+            // Previous lives reset
                // Previous keyboard reset
                // Random phrase is retrieved (getRandomPhrase())
                // Phrase is displayed with objects hidden (addPhraseToDisplay())
       }
             
      checkForWin() {
-           return ($('#phrase ul .hide').length === 0);
+           //return ($('#phrase ul .hide').length === 0);
+           return($("#phrase ul .show").length === $("#phrase ul .letter").length);
+
       }
 
 
@@ -39,7 +43,9 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
             this.missed += 1;
             if(this.missed === 5) {
                   this.gameOver();
+                  //this.resetDisplay();
             }
+            
       }
 
       gameOver() { 
@@ -50,7 +56,17 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
             } else {
                   $("#game-over-message").text("You Lose!")
                   $("#overlay").css('backgroundColor', 'red');
+            
             }
+            $("#phrase ul").empty();
+           this.resetDisplay();
+      }
+      resetDisplay() {
+            //this.missed=0;
+            $("#qwerty .key").prop("disabled", false);
+            document.querySelectorAll(`img[src*=lost]`).forEach(lives => lives.src = "images/liveheart.png");
+            $("#qwerty .key").removeClass("chosen");
+            $("#qwerty .key").removeClass("wrong");
       }
       // METHOD THAT ENDS GAME AND DISPLAYS A MESSAGE ON WHETHER USER WINS OR LOSES
       //           // Leaves game screen and goes back to overlay
@@ -63,19 +79,23 @@ class Game{ // CREATING GAME GLASS. (Entire Javascript file is this one class)
       //     
       // Gives overlay winning class name and styles (Star Wars Victory pic)
       handleInteraction(event) {
-            console.log("Help me");
-            // let chosenLetter = button.text();
-            // if(this.activePhrase.checkLetter(chosenLetter)){
-            //     button.addClass("chosen");
-            //     this.activePhrase.showaMatchedLetter(chosenLetter)
-            //         if(this.checkForWin()) {
-            //             this.gameOver(true)
-            //             $(this).prop("disabled", true);
-            //         } 
-            // } else {
-            //     button.addClass("wrong").prop("disabled", true);
-            //     this.removeLife();
-            // }
+            // console.log("Help me");
+            let chosenLetter = $(event.target).text();
+            $(this).prop("disabled", true);
+            if(this.activePhrase.checkLetter(chosenLetter)){
+                  this.activePhrase.showMatchedLetter(chosenLetter)
+                $(event.target).addClass("chosen");
+                  if(this.checkForWin()) {
+                        this.gameOver(true)
+                  } 
+            } else {
+                  this.activePhrase.checkLetter(chosenLetter)
+                        this.activePhrase.showMatchedLetter(chosenLetter)
+                      $(event.target).addClass("wrong");
+                //$(event.target).addClass().prop("disabled", true);
+                this.removeLife();
+            }
+           
         }
-}     
+ }     
        

@@ -33,6 +33,12 @@ $('#btn__reset').on('click', function () {
 //     const $target = $(e.target);
 //     game.handleInteraction($target);
 // });
-$(".key").click(function() {
+$("#qwerty .key").click(function(event) {
     game.handleInteraction(event);
+    // game.startGame();
+    // game.resetDisplay();
 });
+
+// handleInteraction(event) {
+//     console.log("Help me");
+// }

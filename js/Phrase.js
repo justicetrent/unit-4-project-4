@@ -27,7 +27,8 @@ class Phrase {
         // }
     }
     showMatchedLetter(letter) {
-        $('#phrase ul .' + letter).removeClass('hide').addClass('show');
+        $('#phrase ul .' + letter).addClass('show');
+        $('#phrase ul .' + letter).removeClass('hide');
     }
 
 
