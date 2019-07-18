@@ -68,6 +68,7 @@
       handleInteraction(event) { //FUNCTION THAT CONTROLS THAT INTERACTION WITH THE PLAYER DURING THE GAME. 
             let chosenLetter = $(event.target).text(); 
             $(event.target).prop("disabled", true); // Makes the letter that was selected disabled, so that it cannot be chosen again during the game. 
+            
             if(this.activePhrase.checkLetter(chosenLetter)){      // If the letters selected by the user mataches the letters of the phrase, then the player has won the game. 
                   this.activePhrase.showMatchedLetter(chosenLetter)
                 $(event.target).addClass("chosen"); // Adds the class of chosen to the letters that the player selected correct.
